@@ -1,54 +1,68 @@
-# 📚 Literature Markdown Converter
+# Literature Markdown Converter
 
-A high-performance, premium web application built using **Streamlit** to convert scientific papers, slides, datasets, and text documents into standard, clean **Markdown (.md)** format. 
+Literature Markdown Converter is a professional, high-performance web application built with Streamlit and Python. It is designed to parse and convert various document formats—including scientific papers, slide presentations, spreadsheets, tabular data, and raw text files—into clean, standardized Markdown (.md) documents.
 
-This tool supports processing both single files, multiple files, complete nested folder structures (uploaded via ZIP archives), and local directory scanning. It provides real-time progress details with a beautiful glassmorphic waiting animation.
-
----
-
-## ✨ Features
-
-- **🎨 Modern Visual Design:** Glassmorphism dashboard styled using custom CSS, custom Google typography ("Plus Jakarta Sans" and "JetBrains Mono"), glowing accents, and dynamic transitions.
-- **📂 Flexible Input Formats:**
-  - **Browser Mode:** Upload files directly or upload a ZIP archive of folders. The app recursively traverses zip subdirectories and preserves the structural hierarchy in the output zip!
-  - **Local Scan Mode:** Enter an absolute directory path (e.g. `D:\Literature-MD-Converter\test_documents`). The application scans for matching files and displays them in an interactive checklist using `st.data_editor`.
-- **⏳ Glowing Live Spinner Animation:** Real-time waiting state indicator showing the active file being parsed and page-by-page or slide-by-slide progress details.
-- **🔍 Markdown Document Previewer:** View successfully converted files side-by-side:
-  - **Rendered Document:** View Markdown headings, lists, tables, and spacing formatted live.
-  - **Raw Markdown Source:** View raw text syntax in a scrollable, styled code box.
-- **📥 Unified Export:** Download all parsed markdowns in a single click, packaged inside a ZIP folder maintaining the original relative layout.
+The application features a responsive, Neo-Brutalist design, support for single-file and batch-file uploads, recursive ZIP archive extraction, and secure local directory scanning.
 
 ---
 
-## 🛠️ Supported Extensions & Parsers
+## Features
 
-| Format | Library Used | Parsing Behavior |
-| :--- | :--- | :--- |
-| **PDF (`.pdf`)** | `PyPDF2` | Extracts text layout page-by-page, adding header anchors (`## Page X`). |
-| **Word (`.docx`)** | `python-docx` | Traverses XML elements in exact visual order. Maps heading styles to standard markdown blocks (`#`, `##`, etc.) and translates tables to Markdown table grids. |
-| **PowerPoint (`.pptx`)**| `python-pptx` | Splits outlines slide-by-slide. Renders shapes in context, using text levels to indent sub-bullets. |
-| **Excel (`.xlsx`, `.xls`)**| `pandas` + `openpyxl` | Converts multiple spreadsheet tabs into Markdown tables (`tabulate` engine). |
-| **CSV (`.csv`)** | `pandas` | Formats data tables to markdown format. |
-| **Text (`.txt`)** | Native I/O | Decodes UTF-8 text with fallback replacement handling. |
-| **Archive (`.zip`)** | `zipfile` | Unzips and recursively runs parsers on nested files, rebuilding directories inside the final ZIP export. |
+* **Neo-Brutalist User Interface**: Custom styled layout utilizing modern typography (Space Grotesk and Space Mono) from Google Fonts, sharp styling elements, high-contrast borders, flat dropshadows, and a clean, responsive layout.
+* **Flexible Input Methods**:
+  * **Browser Upload**: Drag and drop or browse to upload individual documents or multiple files simultaneously. Supports ZIP archives; the app recursively unzips, processes files, and rebuilds directories in the output ZIP.
+  * **Local Directory Scanning**: Input a directory path to scan the folder structure for supported documents. Detected documents are displayed in an interactive checkable table for customizable batch selection.
+* **Real-Time Conversion Pipeline**: Visual feedback displays progress details, listing the currently processing document, file index, page-by-page progress for PDFs, and slide outlines for PPTX files.
+* **Unified Output Download**: Export results as a single converted Markdown file or, for batch runs, a structured ZIP file preserving the input's relative folder structure.
+* **Security Constraints**: Built-in safeguards validate local directories to prevent folder traversal. The app blocks folder scans on system roots (such as `C:\` or `D:\`) and operating system directories (like Windows, Program Files, `/usr`, `/etc`, and `/var`).
 
 ---
 
-## 🚀 Getting Started
+## Supported Formats and Parsers
 
-### 1. Prerequisites
-Make sure you have Python 3.8+ installed.
+The conversion pipeline integrates specific libraries to extract content structured for Markdown layout:
 
-### 2. Installation
-Clone the repository, navigate to the folder, and install the dependencies:
+| Format | Extension | Parser Library | Extraction Behavior |
+| :--- | :--- | :--- | :--- |
+| **PDF** | `.pdf` | `PyPDF2` | Extracts text layout page-by-page, adding page headers (`## Page X`). |
+| **Word** | `.docx` | `python-docx` | Traverses XML elements in exact visual order. Maps header styles to heading levels (`#`, `##`, etc.), retains bulleted and numbered lists, and structures tables as Markdown grids. |
+| **PowerPoint** | `.pptx` | `python-pptx` | Extracts slide outlines. Outlines titles and handles indentation offsets for hierarchical bullets. |
+| **Excel** | `.xlsx`, `.xls` | `pandas` + `openpyxl` | Translates each spreadsheet tab into a structured Markdown table grid. |
+| **CSV** | `.csv` | `pandas` | Formats data tables directly to Markdown tables. |
+| **Text** | `.txt` | Native Python I/O | Decodes text contents using UTF-8 with fallback replacement handling. |
+| **Archive** | `.zip` | `zipfile` | Unpacks, filters, parses files recursively, and archives converted results. |
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+Ensure you have Python 3.8 or higher installed on your system.
+
+### Installation
+
+1. Clone or download this repository.
+2. Open your terminal, navigate to the project directory, and install the required dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Launching the App
-Run the Streamlit server:
+### Running the Application
+
+Launch the Streamlit web application with:
+
 ```bash
 streamlit run app.py
 ```
 
-The web page will open automatically in your browser at `http://localhost:8501`.
+The application will run locally and automatically open in your default browser at `http://localhost:8501`.
+
+---
+
+## Project Structure
+
+* **app.py**: Handles Streamlit frontend layouts, Neo-Brutalist CSS styles, user inputs, safety checks, interactive tables, and file download mechanisms.
+* **converter.py**: Houses the core document parser classes, file-routing functions, recursive ZIP handling, and extraction logic.
+* **requirements.txt**: Specifies the exact dependencies and versions required by the pipeline.
