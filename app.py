@@ -187,14 +187,14 @@ div[data-testid="stTextInput"] input:focus {
     box-shadow: 4px 4px 0px #39FF14 !important; /* Neon Green shadow */
 }
 
-/* Ensure all text within file uploader is visible (black text on white background) */
+/* Ensure all text within file uploader is visible (Electric Blue text on white background) */
 [data-testid="stFileUploader"],
 [data-testid="stFileUploader"] p,
 [data-testid="stFileUploader"] span,
 [data-testid="stFileUploader"] label,
 [data-testid="stFileUploader"] div,
 [data-testid="stFileUploader"] small {
-    color: #1C1917 !important;
+    color: #0052FF !important; /* Electric Blue */
 }
 
 /* Style the file uploader Browse button */
