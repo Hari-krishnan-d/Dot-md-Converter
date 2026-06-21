@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 # Literature Markdown Converter
 =======
 # 📚 Any File To Markdown Converter
->>>>>>> bf74be1fdef6ee3b4f969ac328f56d000f9a1c7a
 
 Literature Markdown Converter is a professional, high-performance web application built with Streamlit and Python. It is designed to parse and convert various document formats—including scientific papers, slide presentations, spreadsheets, tabular data, and raw text files—into clean, standardized Markdown (.md) documents.
 
