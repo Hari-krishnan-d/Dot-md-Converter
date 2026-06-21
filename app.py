@@ -453,7 +453,7 @@ def is_safe_local_path(target_path):
 # Main Title Card
 st.markdown("""
 <div class="header-panel">
-    <div class="header-title">Literature MD Converter</div>
+    <div class="header-title">Any File To MD Converter</div>
     <div class="header-subtitle">Batch convert PDF, Word, PowerPoint, Excel sheets, and CSV documents to clean Markdown.</div>
 </div>
 """, unsafe_allow_html=True)
