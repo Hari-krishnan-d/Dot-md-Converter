@@ -187,14 +187,17 @@ div[data-testid="stTextInput"] input:focus {
     box-shadow: 4px 4px 0px #39FF14 !important; /* Neon Green shadow */
 }
 
-/* Force ALL text, links, and icons inside the file uploader to be pure black for perfect visibility */
-[data-testid="stFileUploader"] * {
+/* Ensure all text within file uploader is visible (black text on white background) */
+[data-testid="stFileUploader"],
+[data-testid="stFileUploader"] p,
+[data-testid="stFileUploader"] span,
+[data-testid="stFileUploader"] label,
+[data-testid="stFileUploader"] div,
+[data-testid="stFileUploader"] small {
     color: #1C1917 !important;
 }
 
-/* Style the file uploader Browse button to be highly visible and beautiful */
-[data-testid="stFileUploader"] button:not([data-testid="baseButton-minimal"]),
-[data-testid="stFileUploaderDropzone"] button,
+/* Style the file uploader Browse button */
 [data-testid="stFileUploader"] button[data-testid="baseButton-secondary"],
 [data-testid="stFileUploader"] section button {
     background-color: #FFE600 !important; /* Neon Yellow */
@@ -208,8 +211,6 @@ div[data-testid="stTextInput"] input:focus {
     transition: all 0.1s ease !important;
 }
 
-[data-testid="stFileUploader"] button:not([data-testid="baseButton-minimal"]):hover,
-[data-testid="stFileUploaderDropzone"] button:hover,
 [data-testid="stFileUploader"] button[data-testid="baseButton-secondary"]:hover,
 [data-testid="stFileUploader"] section button:hover {
     background-color: #E6CF00 !important;
@@ -217,30 +218,10 @@ div[data-testid="stTextInput"] input:focus {
     box-shadow: 4px 4px 0px #1C1917 !important;
 }
 
-[data-testid="stFileUploader"] button:not([data-testid="baseButton-minimal"]):active,
-[data-testid="stFileUploaderDropzone"] button:active,
 [data-testid="stFileUploader"] button[data-testid="baseButton-secondary"]:active,
 [data-testid="stFileUploader"] section button:active {
     transform: translate(1px, 1px);
     box-shadow: 2px 2px 0px #1C1917 !important;
-}
-
-/* Ensure the delete/clear buttons (when files are uploaded) look clean and don't get the giant yellow styling */
-[data-testid="stFileUploader"] button[data-testid="baseButton-minimal"],
-[data-testid="stFileUploader"] ul button {
-    background-color: transparent !important;
-    color: #FF007F !important; /* Hot Pink 'x' */
-    border: none !important;
-    box-shadow: none !important;
-    padding: 2px !important;
-    width: auto !important;
-}
-[data-testid="stFileUploader"] button[data-testid="baseButton-minimal"]:hover,
-[data-testid="stFileUploader"] ul button:hover {
-    background-color: #FAF9F5 !important;
-    color: #FF007F !important;
-    transform: none !important;
-    box-shadow: none !important;
 }
 
 @media (max-width: 768px) {
