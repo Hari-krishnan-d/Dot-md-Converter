@@ -187,6 +187,43 @@ div[data-testid="stTextInput"] input:focus {
     box-shadow: 4px 4px 0px #39FF14 !important; /* Neon Green shadow */
 }
 
+/* Ensure all text within file uploader is visible (black text on white background) */
+[data-testid="stFileUploader"],
+[data-testid="stFileUploader"] p,
+[data-testid="stFileUploader"] span,
+[data-testid="stFileUploader"] label,
+[data-testid="stFileUploader"] div,
+[data-testid="stFileUploader"] small {
+    color: #1C1917 !important;
+}
+
+/* Style the file uploader Browse button */
+[data-testid="stFileUploader"] button[data-testid="baseButton-secondary"],
+[data-testid="stFileUploader"] section button {
+    background-color: #FFE600 !important; /* Neon Yellow */
+    color: #1C1917 !important; /* Black text */
+    border: 3px solid #1C1917 !important;
+    border-radius: 0px !important;
+    box-shadow: 3px 3px 0px #1C1917 !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    padding: 8px 16px !important;
+    transition: all 0.1s ease !important;
+}
+
+[data-testid="stFileUploader"] button[data-testid="baseButton-secondary"]:hover,
+[data-testid="stFileUploader"] section button:hover {
+    background-color: #E6CF00 !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px #1C1917 !important;
+}
+
+[data-testid="stFileUploader"] button[data-testid="baseButton-secondary"]:active,
+[data-testid="stFileUploader"] section button:active {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0px #1C1917 !important;
+}
+
 @media (max-width: 768px) {
     [data-testid="stFileUploader"] {
         padding: 15px !important;
